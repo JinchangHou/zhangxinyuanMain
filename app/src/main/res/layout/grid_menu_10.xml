@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!--放5个-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/gridCat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/gridJHS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/gridTMgj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_wm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_tmcs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_czzx"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_fzlx"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_ljb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_dj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+        <com.example.volunteer.ui.GridMenu
+            android:id="@+id/grid_fl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.GridMenu>
+
+    </LinearLayout>
+</LinearLayout>

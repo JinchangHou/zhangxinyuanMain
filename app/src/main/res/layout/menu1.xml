@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="3dp"
+    android:gravity="center">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@mipmap/art_collection"/>
+    <TextView
+        android:textSize="13sp"
+        android:id="@+id/tv_menu"
+        android:textColor="@color/font66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="天猫"/>
+</LinearLayout>

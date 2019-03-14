@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.volunteer.Activity.MallActivity">
+
+    <!--顶部搜索框-->
+    <include
+        android:id="@+id/includeTop"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </include>
+
+
+    <!--底部导航栏-->
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f5f5f5"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <com.example.volunteer.ui.ButtomBtn
+            android:id="@+id/bomBtnHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.ButtomBtn>
+
+        <com.example.volunteer.ui.ButtomBtn
+            android:id="@+id/bomBtnTiny"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.ButtomBtn>
+
+        <com.example.volunteer.ui.ButtomBtn
+            android:id="@+id/bomBtnAsk"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.ButtomBtn>
+
+        <com.example.volunteer.ui.ButtomBtn
+            android:id="@+id/bomBtnShopCar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.ButtomBtn>
+
+        <com.example.volunteer.ui.ButtomBtn
+            android:id="@+id/bomBtnMy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </com.example.volunteer.ui.ButtomBtn>
+    </LinearLayout>
+
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swp"
+        android:layout_above="@id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/includeTop">
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@id/ll_bottom">
+    </include>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

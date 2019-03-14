@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <!-- icon  and title-->
+    <!-- showAsFunctiion指定按钮现实的位置  可选值：
+    always（永远显示在Toolbar中，屏幕空间不足则不显示），
+    ifRoom（屏幕空间足够的情况下显示在Toolbar中，不够则显示在菜单当中）
+    never（永远显示在菜单中）。注意：Toolbar中的action按钮只会显示图标
+    菜单中的 action 只会显示文字。
+    如果设置为never则会显示在展开菜单项中（也就是所谓的三个点）
+    -->
+    <item
+        android:id="@+id/backup"
+        android:icon="@drawable/backup"
+        android:title="Backup"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/delete"
+        android:title="delete"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/setting"
+        android:title="setting"
+        app:showAsAction="always"/>
+</menu>

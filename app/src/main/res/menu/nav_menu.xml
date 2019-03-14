@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <group
+        android:checkableBehavior="single"
+        >
+        <!-- 将group的checkableBehavior属性设为single（所有菜单项只能单选）。接下来定义了5个菜单项。这样准备好了menu。-->
+        <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/mall"
+            android:title="商城"/>
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/friends"
+            android:title="Friends"
+            />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/location"
+            android:title="Location"/>
+        <item
+            android:id="@+id/nav_mail"
+            android:icon="@drawable/mail"
+            android:title="mail"
+            />
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/task"
+            android:title="task"/>
+        </group>
+</menu>

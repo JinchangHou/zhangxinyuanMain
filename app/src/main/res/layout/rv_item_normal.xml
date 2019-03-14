@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="质男说"
+            android:textColor="@color/font33"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:src="@mipmap/back_arrow02" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="经典更不羁，马丁靴的霸气你知道吗"
+        android:textColor="@color/font66"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_goodsLeft"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/shoes_normal" />
+
+        <ImageView
+            android:id="@+id/iv_goodsRight"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/shoes_normal" />
+    </LinearLayout>
+</LinearLayout>

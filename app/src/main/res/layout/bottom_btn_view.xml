@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:src="@mipmap/czyytitle"
+        android:id="@+id/mall_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@+id/mall_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="消息"
+        android:textColor="@color/font66"
+        android:textSize="13sp" />
+</merge>
