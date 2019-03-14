@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.volunteer.Activity.MallActivity;
+import com.example.volunteer.Activity.PersonActivity;
 import com.example.volunteer.Home_Page.Fruit;
 import com.example.volunteer.Home_Page.FruitAdapter;
 
@@ -106,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_task://滑动菜单显示键
                         Log.e("nav_task","jjjjjjj");
+                        break;
+                    case R.id.nav_boy://卡通男孩区
+                        Log.e("nav_boy","jjjjjjj");
+                        Intent intent2 =new Intent(MainActivity.this, PersonActivity.class);
+                        startActivity(intent2);
                         break;
                     default:
                         break;

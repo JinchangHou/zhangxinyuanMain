@@ -11,17 +11,16 @@
     <style name="activityTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
     <!-- fruitActivity-->
 
-    <style name="FruitActivityTheme" parent="AppTheme">
-    </style>
+    <style name="FruitActivityTheme" parent="AppTheme"></style>
 
     <declare-styleable name="FlyBanner">
-        <attr name="points_visibility" format="boolean"/>
+        <attr name="points_visibility" format="boolean" />
         <attr name="points_position" format="enum">
-            <enum name="CENTER" value="0"/>
-            <enum name="LEFT" value="1"/>
-            <enum name="RIGHT" value="2"/>
+            <enum name="CENTER" value="0" />
+            <enum name="LEFT" value="1" />
+            <enum name="RIGHT" value="2" />
         </attr>
-        <attr name="points_container_background" format="reference|color"/>
+        <attr name="points_container_background" format="reference|color" />
     </declare-styleable>
 
     <declare-styleable name="GoodsTrendSection">
@@ -29,4 +28,8 @@
         <attr name="desc" format="string"></attr>
         <attr name="imgRes" format="reference"></attr>
     </declare-styleable>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

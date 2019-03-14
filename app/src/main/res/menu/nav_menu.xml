@@ -27,5 +27,9 @@
             android:id="@+id/nav_task"
             android:icon="@drawable/task"
             android:title="task"/>
+        <item
+            android:id="@+id/nav_boy"
+            android:icon="@drawable/love"
+            android:title="爱心区"/>
         </group>
 </menu>

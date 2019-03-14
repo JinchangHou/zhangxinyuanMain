@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.volunteer">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    package="com.example.volunteer">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".Utils.NetApplication"
         android:allowBackup="true"
@@ -17,29 +19,22 @@
             android:name=".MainActivity"
             android:label="Fruits">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Home_Page.FruitActivity"
-            android:theme="@style/FruitActivityTheme">
-        </activity>
-
+            android:theme="@style/FruitActivityTheme" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.MallActivity" />
+        <activity android:name=".Activity.DetailActivity" />
         <activity
-            android:name=".Activity.LoginActivity">
-
-        </activity>
-        <activity
-            android:name=".Activity.MallActivity">
-
-        </activity>
-        <activity
-            android:name=".Activity.DetailActivity">
-
-        </activity>
+            android:name=".Activity.BoyActivity"
+            android:label="@string/title_activity_boy"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activity.PersonActivity"></activity>
     </application>
 
 </manifest>
