@@ -30,10 +30,6 @@
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.MallActivity" />
         <activity android:name=".Activity.DetailActivity" />
-        <activity
-            android:name=".Activity.BoyActivity"
-            android:label="@string/title_activity_boy"
-            android:theme="@style/AppTheme" />
         <activity android:name=".Activity.PersonActivity"></activity>
     </application>
 

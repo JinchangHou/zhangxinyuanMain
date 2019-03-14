@@ -7,7 +7,8 @@
     android:orientation="vertical"
     android:background="@drawable/bg"
     xmlns:menu="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.volunteer.Activity.PersonActivity">
+    tools:context="com.example.volunteer.Activity.PersonActivity"
+    >
     <LinearLayout
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -149,7 +150,7 @@
     </LinearLayout>
 
 
-    <com.mingrisoft.draw.view.SatelliteMenu
+    <com.example.volunteer.ui.SatelliteMenu
         android:id="@+id/satelliteMenu"
         android:layout_width="wrap_content"
         android:layout_gravity="bottom"
@@ -201,6 +202,6 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/img1"-->
         <!--android:tag="@string/text_btn5" />-->
-    </com.mingrisoft.draw.view.SatelliteMenu>
+    </com.example.volunteer.ui.SatelliteMenu>
 
 </FrameLayout>

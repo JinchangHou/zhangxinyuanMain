@@ -3,6 +3,7 @@ package com.example.volunteer.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -13,6 +14,8 @@ import com.example.volunteer.R;
 import com.example.volunteer.ui.SatelliteMenu;
 import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
+
+
 
 public class PersonActivity extends AppCompatActivity {
 
@@ -34,18 +37,9 @@ public class PersonActivity extends AppCompatActivity {
 
 
         imageView = (ImageView) findViewById(R.id.max);//实例化控件对象
+        Log.d("boyboy", "sdfsa");
         animationDrawable = (AnimationDrawable) imageView.getDrawable();
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
 
 
         zhiliLayout= (RelativeLayout) findViewById(R.id.zhili);
