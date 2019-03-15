@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="6dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/icon_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+
+                />
+            <TextView
+                android:id="@+id/person_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_toRightOf="@+id/icon_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="侯金昌"
+                />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:text="2017 3 8 12:23"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="android:drawable 放一个drawable资源
+android:state_pressed 是否按下，如一个按钮触摸或者点击（可以设置按下一个颜色，抬起是另一种颜色）。"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c9bebe"/>
+        <LinearLayout
+            android:id="@+id/zan_commit_view"
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:paddingTop="7dp"
+                android:paddingLeft="20dp"
+                android:id="@+id/zan_count"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:text="kdsah"
+                android:layout_height="match_parent"
+                />
+            <Button
+                android:id="@+id/zan"
+                android:layout_width="0dp"
+                android:background="#00000000"
+                android:drawableLeft="@drawable/button_zan_selector"
+                android:text="点赞"
+                android:layout_weight="2"
+                android:textSize="12sp"
+                android:layout_height="25dp"/>
+            <Button
+                android:id="@+id/commit"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:background="#00000000"
+                android:textSize="12sp"
+                android:layout_height="25dp"
+                android:drawableLeft="@drawable/commit"
+                android:text="评论"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            >
+            <TextView
+                android:id="@+id/comment_display_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                />
+            <TextView
+                android:id="@+id/comment_display_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                />
+            <TextView
+                android:id="@+id/comment_display_tv3"
+                android:layout_width="match_parent"
+                android:paddingLeft="6dp"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

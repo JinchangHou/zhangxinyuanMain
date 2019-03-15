@@ -23,6 +23,7 @@ import com.example.volunteer.Activity.MallActivity;
 import com.example.volunteer.Activity.PersonActivity;
 import com.example.volunteer.Home_Page.Fruit;
 import com.example.volunteer.Home_Page.FruitAdapter;
+import com.example.volunteer.shuoshuo.SHuoSHuoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_friends:
                         Log.e("nav_friends","jjjjjjj");
+                        Intent intent3 =new Intent(MainActivity.this, SHuoSHuoActivity.class);
+                        startActivity(intent3);
                         break;
                     case R.id.nav_location://设置键
                         Log.e("nav_location","jjjjjjj");

@@ -9,4 +9,6 @@
     <string name="text_btn3">子按钮3</string>
     <string name="text_btn4">子按钮4</string>
     <string name="text_btn5">子按钮5</string>
+    <drawable name="clr_normal">@drawable/zan</drawable>
+    <drawable name="clr_pressed">@drawable/zan2</drawable>
 </resources>
