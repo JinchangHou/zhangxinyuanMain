@@ -76,7 +76,7 @@ public class AddShuoShuo extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= 24) {
                 //判断安卓版本、sdk24以上安全性提高   封装uri  使用内容提供器（必须在AndroidManifest中注册）
                     ImageUri = FileProvider.getUriForFile(AddShuoShuo.this,
-                            "com.example.shuoshuo.fileprovider", outputImage);
+                            "com.example.volunteer.shuoshuo.AddShuoShuo.fileprovider", outputImage);
                 }
                 //      获取文件uri的方法，，，File.getUriForFile();，，传入context，authority，file对象
                 else {

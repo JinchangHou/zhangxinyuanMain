@@ -23,6 +23,7 @@ import com.example.volunteer.Activity.MallActivity;
 import com.example.volunteer.Activity.PersonActivity;
 import com.example.volunteer.Home_Page.Fruit;
 import com.example.volunteer.Home_Page.FruitAdapter;
+import com.example.volunteer.LBS.LBSActivity;
 import com.example.volunteer.shuoshuo.SHuoSHuoActivity;
 
 import java.util.ArrayList;
@@ -104,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_location://设置键
                         Log.e("nav_location","jjjjjjj");
+                        intent=new Intent(MainActivity.this,LBSActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.nav_mail://滑动菜单显示键
                         Log.e("nav_mail","jjjjjjj");
