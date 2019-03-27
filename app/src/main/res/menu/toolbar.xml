@@ -14,7 +14,8 @@
         android:id="@+id/backup"
         android:icon="@drawable/backup"
         android:title="Backup"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/delete"
         android:icon="@drawable/delete"

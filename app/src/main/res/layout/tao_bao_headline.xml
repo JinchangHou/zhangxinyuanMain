@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:src="@mipmap/taobao_headline" />
+            android:src="@drawable/headline_replacetaobao" />
 
         <View
             android:layout_width="1px"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:singleLine="true"
-                    android:text="马丁靴的正确穿搭，让你的帅气更上一层楼"
+                    android:text="保健品大降价，你更强大"
                     android:textColor="@color/font33" />
             </LinearLayout>
 
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:singleLine="true"
-                    android:text="秋冬款棉袄惊喜价，只卖199，赶快来买"
+                    android:text="一箱鸡蛋免费领"
                     android:textColor="@color/font33" />
             </LinearLayout>
         </LinearLayout>

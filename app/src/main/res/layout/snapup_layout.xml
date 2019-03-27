@@ -42,7 +42,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
-                        android:text="抢淘购"
+                        android:text="限时抢"
                         android:textColor="@color/red_cd0000"
                         android:textSize="17sp" />
 
@@ -99,7 +99,7 @@
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/qiang_gou" />
+                    android:src="@mipmap/xiangjiao" />
 
 
             </LinearLayout>
@@ -115,7 +115,7 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/kuzi" />
+                    android:src="@mipmap/you" />
             </FrameLayout>
         </LinearLayout>
 
@@ -155,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="高颜值美物"
+                android:text="文具图书"
                 android:textColor="@color/font66" />
 
             <LinearLayout
@@ -167,13 +167,13 @@
                     android:layout_width="80dp"
                     android:layout_height="65dp"
                     android:scaleType="center"
-                    android:src="@mipmap/qunzi" />
+                    android:src="@mipmap/shuji" />
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="65dp"
                     android:scaleType="center"
-                    android:src="@mipmap/shoes" />
+                    android:src="@mipmap/wenju" />
             </LinearLayout>
 
         </LinearLayout>
@@ -219,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
-                        android:text="爱逛街"
+                        android:text="穿搭"
                         android:textColor="@color/font66"
                         android:textSize="17sp" />
 
@@ -228,13 +228,13 @@
                     android:textColor="@color/font66"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="时髦流行款"/>
+                    android:text="日用衣物"/>
 
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/qiang_gou" />
+                    android:src="@mipmap/yiwu" />
 
 
             </LinearLayout>
@@ -288,7 +288,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="一站式攻略"
+                android:text="中药保健"
                 android:textColor="@color/font66" />
 
             <LinearLayout
@@ -300,13 +300,13 @@
                     android:layout_width="80dp"
                     android:layout_height="65dp"
                     android:scaleType="center"
-                    android:src="@mipmap/qunzi" />
+                    android:src="@mipmap/zhongyao" />
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="65dp"
-                    android:scaleType="center"
-                    android:src="@mipmap/shoes" />
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/baojianpin" />
             </LinearLayout>
 
         </LinearLayout>

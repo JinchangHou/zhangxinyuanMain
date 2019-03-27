@@ -21,12 +21,12 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 往SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
     //LBS//
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <application
         android:name=".Utils.NetApplication"
         android:allowBackup="true"
@@ -37,7 +37,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="xntcwvZMm44gd1whGFPNSXdrdSu2eIUQ"/>
+            android:value="ngqUF05hW29R79QKudZLfvcXpguQzcc8" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.volunteer.shuoshuo.AddShuoShuo.fileprovider"
@@ -45,8 +46,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".MainActivity"
             android:label="Fruits">
@@ -65,8 +67,7 @@
         <activity android:name=".Activity.PersonActivity" />
         <activity android:name=".shuoshuo.SHuoSHuoActivity" />
         <activity android:name=".shuoshuo.AddShuoShuo" />
-        <activity android:name=".LBS.LBSActivity"></activity>
-
+        <activity android:name=".LBS.LBSActivity" />
     </application>
 
 </manifest>

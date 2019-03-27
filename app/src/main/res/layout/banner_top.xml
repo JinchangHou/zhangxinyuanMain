@@ -8,7 +8,8 @@
     <com.example.volunteer.ui.FlyBanner
         android:id="@+id/bannerTop"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="140dp"
+
         FlyBanner:points_position="RIGHT"
         >
     </com.example.volunteer.ui.FlyBanner>

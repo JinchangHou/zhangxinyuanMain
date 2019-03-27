@@ -12,7 +12,7 @@
         <ImageView
             android:id="@+id/fruit_image"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="140dp"
             android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/fruit_name"

@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import cn.bmob.v3.Bmob;
+
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private Toolbar toolbar;
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //ToolBar代替ActionBar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);//将ToolBar实例传入
+        Bmob.initialize(this, "706b623303ad79f7265aa54f740c3299");
 
         android.support.v7.app.ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         });
         initFruits();
         RecyclerView recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
-        GridLayoutManager layoutManager =new GridLayoutManager(this,3);
+        GridLayoutManager layoutManager =new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
         adapter=new FruitAdapter(this,fruitList);
         recyclerView.setAdapter(adapter);

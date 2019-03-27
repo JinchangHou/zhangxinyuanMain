@@ -12,12 +12,12 @@
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/friends"
-            android:title="Friends"
+            android:title="任务领发"
             />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/location"
-            android:title="Location"/>
+            android:title="签到定位"/>
         <item
             android:id="@+id/nav_mail"
             android:icon="@drawable/mail"
@@ -30,6 +30,6 @@
         <item
             android:id="@+id/nav_boy"
             android:icon="@drawable/love"
-            android:title="爱心区"/>
+            android:title="爱心小窝"/>
         </group>
 </menu>

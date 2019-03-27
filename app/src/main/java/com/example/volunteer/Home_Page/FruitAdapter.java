@@ -57,7 +57,7 @@ public class FruitAdapter extends RecyclerView.Adapter {
         ViewHolder holder11=(ViewHolder)holder;
         Fruit fruit=mFruitList.get(position);
         holder11.fruit_name.setText(fruit.getName());
-        Glide.with(mContext).load(fruit.getImageId()).into(holder11.fruit_image);
+        Glide.with(mContext).load(R.drawable.timg).into(holder11.fruit_image);
         Log.d("adapter1", fruit.getImageId() + "");
     }
 
