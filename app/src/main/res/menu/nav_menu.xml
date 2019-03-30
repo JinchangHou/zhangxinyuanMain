@@ -32,4 +32,26 @@
             android:icon="@drawable/love"
             android:title="爱心小窝"/>
         </group>
+    <group android:checkableBehavior="none"
+        android:id="@+id/group_manage">
+        <item
+            android:id="@+id/nav_manage"
+            android:title="应用管理"
+            android:icon="@drawable/add"/>
+    </group>
+    <group
+        android:checkableBehavior="none"
+        android:id="@+id/group_settings">
+        <item android:id="@+id/nav_theme"
+            android:title="主题风格"/>
+        <item android:id="@+id/nav_night"
+            android:title="夜间模式"/>
+        <item android:id="@+id/nav_setting"
+            android:title="设置"/>
+        <item android:id="@+id/nav_suggestion"
+            android:title="意见反馈"/>
+        <item android:id="@+id/nav_about"
+            android:title="关于"/>
+
+    </group>
 </menu>
