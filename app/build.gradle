@@ -1,17 +1,15 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'android-apt'
 android {
     compileSdkVersion 26
-    buildToolsVersion "28.0.1"
-
     defaultConfig {
-//        applicationId "com.example.shuoshuo"
+//        applicationId "com.example.testnewversioandroooidstudio"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         multiDexEnabled true
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,58 +17,61 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
 
-    dependencies {
-//        compile fileTree(include: ['*.jar'], dir: 'libs')
-        /*androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-            exclude group: 'com.android.support', module: 'support-annotations'
-        })*/
-        compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-//        compile 'com.android.support.constraint:constraint-layout:1.0.2-alpha1'
-        testCompile 'junit:junit:4.12'
-        compile project(':library')
-        compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
-        compile 'com.github.bumptech.glide:glide:3.7.0'
-        compile 'com.android.support:cardview-v7:26.0.0-alpha1'
-        compile 'de.hdodenhof:circleimageview:2.1.0'
-        //bmob
-        compile 'cn.bmob.android:bmob-sdk:3.6.3'
-
-        compile 'cn.bmob.android:bmob-push:0.8'
-
-        compile 'cn.bmob.android:bmob-im:2.1.0@aar'
-
-        compile 'cn.bmob.android:http-legacy:1.0'
-
-
-
-
-        compile 'com.soundcloud.android:android-crop:1.0.1@aar'
-
-
-        compile 'com.github.bumptech.glide:glide:3.7.0'
-        compile 'com.android.support:design:26.0.0-alpha1'
-        //ConstraintLayout是一个ViewGroup允许您以灵活的方式定位和调整小部件的方法
-//        compile 'com.android.support.constraint:constraint-layout:1.0.2-alpha1'
-        //解析json库
-        compile 'com.google.code.gson:gson:2.6.2'
-
-        //适用于Android的强大图像下载和缓存库
-        compile 'com.squareup.picasso:picasso:2.5.2'
-        //绑定注解开源库
-        compile 'com.jakewharton:butterknife:8.4.0'
-        apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
-
-
-
-        compile('com.github.niorgai:StatusBarCompat:2.1.4', {
-            exclude group: 'com.android.support'
-        })
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-
-        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-            exclude group: 'com.android.support', module: 'support-annotations'
-        })
+dependencies {
+    androidTestCompile('com.android.support:support-annotations:26.1.0') {
+        force = true
     }
+    androidTestImplementation'com.android.support:support-annotations:26.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile project(':library')
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
+    compile 'cn.bmob.android:bmob-sdk:3.6.3'
+
+    compile 'cn.bmob.android:bmob-push:0.8'
+
+    compile 'cn.bmob.android:bmob-im:2.1.0@aar'
+
+    compile 'cn.bmob.android:http-legacy:1.0'
+
+
+
+
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //ConstraintLayout是一个ViewGroup允许您以灵活的方式定位和调整小部件的方法
+//        compile 'com.android.support.constraint:constraint-layout:1.0.2-alpha1'
+    //解析json库
+    compile 'com.google.code.gson:gson:2.8.5'
+
+    //适用于Android的强大图像下载和缓存库
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //绑定注解开源库
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile('com.github.niorgai:StatusBarCompat:2.1.4', {
+        exclude group: 'com.android.support'
+    })
+
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }

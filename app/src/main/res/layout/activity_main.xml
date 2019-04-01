@@ -52,14 +52,14 @@
             android:src="@drawable/done"
             app:elevation="8dp"/>
         <!-- app:elevation属性给FloatingActionButton按钮设置阴影（指定高度值）-->
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/nav_bottom_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:foregroundGravity="bottom"
-            app:menu="@menu/navigation"
-            />
+        <!--<android.support.design.widget.BottomNavigationView-->
+            <!--android:id="@+id/nav_bottom_view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:foregroundGravity="bottom"-->
+            <!--app:menu="@menu/navigation"-->
+            <!--/>-->
     </FrameLayout>
     <android.support.design.widget.NavigationView
        android:id="@+id/nav_view"
