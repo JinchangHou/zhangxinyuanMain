@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.example.volunteer.R;
 import com.example.volunteer.Utils.RvAdapter;
 import com.example.volunteer.Utils.UIUtils;
+import com.example.volunteer.stack.ScreenManager;
 import com.example.volunteer.ui.ButtomBtn;
 import com.example.volunteer.ui.DividerGridItemDecoration;
 import com.example.volunteer.ui.FlyBanner;
@@ -74,6 +75,7 @@ public class MallActivity extends AppCompatActivity implements SwipeRefreshLayou
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_mall);
 
         buttomBtnScan = (ButtomBtn)findViewById(R.id.buttomBtnScan);
@@ -108,6 +110,17 @@ public class MallActivity extends AppCompatActivity implements SwipeRefreshLayou
         normalGoodsTitls.add("霸道总裁");
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+    public void exitSystem(View v)
+    {
+        ScreenManager.getScreenManager().popAllActivityExceptMain(getClass());
+
+        finish();
+    }
 
     private void initBigPics() {
         bigPics = new ArrayList<>();

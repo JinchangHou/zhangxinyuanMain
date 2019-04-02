@@ -14,8 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.example.volunteer.R;
 
+import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 import com.example.volunteer.ui.IdeaScrollView;
 import com.example.volunteer.ui.IdeaViewPager;
 
@@ -50,10 +51,19 @@ public class DetailActivity extends AppCompatActivity {
     };
     private boolean isNeedScrollTo = true;
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        ActivityManager am =  (ActivityManager)getSystemService("");
+        ScreenManager.getScreenManager().pushActivity(this);
+
         setContentView(R.layout.activity_detal);
         StatusBarCompat.translucentStatusBar(this);
         header = (LinearLayout)findViewById(R.id.header);
@@ -169,5 +179,11 @@ public class DetailActivity extends AppCompatActivity {
 
     public int getRadioAlphaColor(float f){
         return Color.argb((int) (f*255),0xFF,0xFF,0xFF);
+    }
+    public void exitSystem(View v)
+    {
+        ScreenManager.getScreenManager().popAllActivityExceptMain(getClass());
+
+        finish();
     }
 }

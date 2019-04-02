@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 
 public class FruitActivity extends AppCompatActivity {
 
@@ -22,9 +23,17 @@ public class FruitActivity extends AppCompatActivity {
     private ImageView fruitImageView;
     private TextView textView;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_fruit);
 
 

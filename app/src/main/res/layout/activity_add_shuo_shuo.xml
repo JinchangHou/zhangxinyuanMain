@@ -8,6 +8,34 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- ToolBar代替ActionBar,,,解决toolBar被覆盖问题-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+            <ImageView
+                android:id="@+id/backup"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:src="@drawable/back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:text="发起任务"/>
+
+        </android.support.v7.widget.Toolbar>
+        <!-- scroll表示当RecycleView向上滚动的时候，Toolbar会跟着向上滑动并实现隐藏；enterAlways表示当RecycleView向下滑动并重新显示。snp表示Toolbar还没有完全隐藏或显示的时候，根据当前滚动的距离自动选择显示还是隐藏。-->
+    </android.support.design.widget.AppBarLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"

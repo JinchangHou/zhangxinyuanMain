@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,6 +49,7 @@ public class AddShuoShuo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_add_shuo_shuo);
         picture= (ImageView) findViewById(R.id.picture);
         takephoto= (Button) findViewById(R.id.take_photo);
@@ -277,7 +279,13 @@ public class AddShuoShuo extends AppCompatActivity {
         }
     }
 
-    private void upload(String url,String text){
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+
+    private void upload(String url, String text){
         Content content=new Content();
         content.setImageUrl(url.toString());
         content.setTitle(text);

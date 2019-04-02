@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,6 +46,7 @@ public class SHuoSHuoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_shuo_shuo);
         recyclerView= (RecyclerView) findViewById(R.id.recleView);
         StaggeredGridLayoutManager layoutManager =
@@ -73,6 +75,12 @@ public class SHuoSHuoActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
     }
 
     private void addData(){

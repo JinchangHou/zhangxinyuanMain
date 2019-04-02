@@ -17,6 +17,7 @@ import com.example.volunteer.MainActivity;
 import com.example.volunteer.R;
 import com.example.volunteer.Utils.NetWorkUtils;
 import com.example.volunteer.Utils.People;
+import com.example.volunteer.stack.ScreenManager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_login);
         //将数据存储到sharedPreferences中
         //得到SharedPreferences.Editor对象，并保存数据到该对象中
@@ -126,5 +128,17 @@ public class LoginActivity extends AppCompatActivity {
             code = Integer.parseInt(people.getResultCode());
         }
         return code;
+    }
+    public void exitSystem(View v)
+    {
+        ScreenManager.getScreenManager().popAllActivityExceptMain(getClass());
+
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
     }
 }

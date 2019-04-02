@@ -22,6 +22,7 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +34,11 @@ public class LBSActivity extends AppCompatActivity {
     private MapView mapView;
     private BaiduMap baiduMap;
     private boolean isFirstLocate=true;//防止多次调用animateMapStatus方法
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         mLocationClient=new LocationClient(getApplicationContext());//构建位置服务器对象
         mLocationClient.registerLocationListener(new MyLocationListener());//当获取到位置信息时就会调用该监听器
         Log.d("getApplication",getApplicationContext().toString());
@@ -115,6 +118,7 @@ public class LBSActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
         mLocationClient.stop();
         mapView.onDestroy();
         baiduMap.setMyLocationEnabled(false);//程序退出是关闭我的位置

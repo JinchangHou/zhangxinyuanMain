@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.volunteer.R;
+import com.example.volunteer.stack.ScreenManager;
 import com.example.volunteer.ui.SatelliteMenu;
 import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
@@ -29,10 +30,29 @@ public class PersonActivity extends AppCompatActivity {
     private ImageView imageView;
     private AnimationDrawable animationDrawable;
     SatelliteMenu menu ;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+
+    /**
+     * <退出系统>
+     * <绑定退出按钮>
+     * @param v
+     * @see [类、类#方法、类#成员]
+     */
+    public void exitSystem(View v)
+    {
+        ScreenManager.getScreenManager().popAllActivityExceptMain(getClass());
+
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_person);
 
 

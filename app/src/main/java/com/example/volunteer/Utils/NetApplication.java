@@ -13,9 +13,12 @@ public class NetApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         application=this;
 
     }
+
+
     /**获取上下文*/
     public static Context getApplication() {
         return application;

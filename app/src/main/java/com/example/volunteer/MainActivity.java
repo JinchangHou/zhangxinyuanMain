@@ -24,13 +24,16 @@ import com.example.volunteer.Activity.PersonActivity;
 import com.example.volunteer.Home_Page.Fruit;
 import com.example.volunteer.Home_Page.FruitAdapter;
 import com.example.volunteer.LBS.LBSActivity;
+import com.example.volunteer.personal_page.PersonPage;
 import com.example.volunteer.shuoshuo.SHuoSHuoActivity;
+import com.example.volunteer.stack.ScreenManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import cn.bmob.v3.Bmob;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
             fruitList.add(fruits[index]);
         }
     }
+
+
+    private CircleImageView touxiang;
     //刷新本地操作
     private void refresh(){
         new Thread(new Runnable() {
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_main);
         //ToolBar代替ActionBar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
@@ -86,7 +93,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mDrawerLayout= (DrawerLayout) findViewById(R.id.drawer_layout);
-        NavigationView navView= (NavigationView) findViewById(R.id.nav_view);
+
+        final NavigationView navView= (NavigationView) findViewById(R.id.nav_view);
+        final View headView=navView.inflateHeaderView(R.layout.nav_header);
+        touxiang=headView.findViewById(R.id.icon_image);
+        touxiang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(headView.getContext(),"sdafa",Toast.LENGTH_LONG).show();
+                Intent intentTopage=new Intent(MainActivity.this, PersonPage.class);
+                startActivity(intentTopage);
+            }
+        });
         navView.setCheckedItem(R.id.nav_call);//设置默认选中的图标
         //设置点击事件setNavigationItemSelectedListener
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -94,11 +112,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 //mDrawerLayout.closeDrawers();
                 //Log.e("ssssss","jjjjjjj");
+
                 switch(item.getItemId()){
+
                     case R.id.nav_call://返回键
                         Log.e("nav_call","jjjjjjj");
-                        Intent intent = new Intent(MainActivity.this, MallActivity.class);
-                        startActivity(intent);
+                        Intent intent23 = new Intent(MainActivity.this, MallActivity.class);
+                        startActivity(intent23);
                         //Toast.makeText(this,"kaikkkk",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_friends:
@@ -108,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_location://设置键
                         Log.e("nav_location","jjjjjjj");
-                        intent=new Intent(MainActivity.this,LBSActivity.class);
+                        Intent intent=new Intent(MainActivity.this,LBSActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.nav_mail://滑动菜单显示键
@@ -116,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_task://滑动菜单显示键
                         Log.e("nav_task","jjjjjjj");
+
                         break;
                     case R.id.nav_boy://卡通男孩区
                         Log.e("nav_boy","jjjjjjj");
@@ -174,6 +195,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ScreenManager.getScreenManager().popActivity(this);
+    }
+
     //处理menu按钮点击事件
     @Override                                  //传入item，，，确定哪个item
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -196,4 +223,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 }
