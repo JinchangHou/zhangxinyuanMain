@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -28,6 +29,7 @@ public class PersonPage extends AppCompatActivity {
     private TextView mUserName;
     private TextView mUserVal;
     private Toolbar toolbar;
+    private LinearLayout change;
 
 
     @Override
@@ -57,12 +59,12 @@ public class PersonPage extends AppCompatActivity {
                 .bitmapTransform(new CropCircleTransformation(this))
                 .into(mHHead);
 
-        mUserName.setOnClickListener(new View.OnClickListener() {
+        change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent=new Intent(PersonPage.this,ChangeMessageActivity.class);
-                intent.putExtra("changeType",CHANGE_TYPE_STU_NAME);
+
                 startActivity(intent);
             }
         });
@@ -78,6 +80,7 @@ public class PersonPage extends AppCompatActivity {
 
     private void initView() {
         //顶部头像控件
+        change=findViewById(R.id.ll_password);
         mHBack = (ImageView) findViewById(R.id.h_back);
         mHHead = (ImageView) findViewById(R.id.h_head);
         mUserLine = (ImageView) findViewById(R.id.user_line);

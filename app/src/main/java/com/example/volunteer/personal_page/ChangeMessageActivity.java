@@ -1,6 +1,5 @@
 package com.example.volunteer.personal_page;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -16,11 +15,8 @@ import android.widget.Toast;
 import com.example.volunteer.Javabean.Student;
 import com.example.volunteer.R;
 
-import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 public class ChangeMessageActivity extends AppCompatActivity {
@@ -57,7 +53,7 @@ public class ChangeMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_message);
         initView();
 
-        Bmob.initialize(this,"706b623303ad79f7265aa54f740c3299");
+//        Bmob.initialize(this,"706b623303ad79f7265aa54f740c3299");
 
 
 
@@ -73,163 +69,134 @@ public class ChangeMessageActivity extends AppCompatActivity {
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                strNewMessage = ed_new_message.getText().toString();
-                String num = "[1][34578]\\d{9}";
-                if (strNewMessage.isEmpty() || !strNewMessage.matches(num)) {
-                    ed_new_message.setError("请输入一个有效的手机号！！！");
-                    return;
-                }
-                //请求短信
-                BmobSMS.requestSMSCode(ed_new_message.getText().toString(), "我的模板", new QueryListener<Integer>() {
-                    @Override
-                    public void done(Integer integer, BmobException e) {
-                        if (e == null) {//验证码发送成功
-                            myCountDownTimer = new MyCountDownTimer(60000, 1000);
-                            myCountDownTimer.start();
-                            Log.i("htht", "短信id：" + integer);//用于查询本次短信发送详情
-                        } else {
-                            String errorMessage;
-                            switch (e.getErrorCode()) {
-                                case 9018:
-                                    errorMessage = "手机号码为空，咋子发出去嘛！！！";
-                                    break;
-                                default:
-                                    errorMessage = "验证码获取失败！！！";
-                                    break;
-
-                            }
-                            Toast.makeText(getBaseContext(), errorMessage, Toast.LENGTH_LONG).show();
-                            Log.e("htht", "done: " + e.getMessage());
-                            Log.e("htht", "done:  code" + e.getErrorCode());
-                        }
-                    }
-                });
+                myCountDownTimer = new MyCountDownTimer(60000, 1000);
+                myCountDownTimer.start();
             }
         });
-
-        Intent intent = getIntent();
-        type = intent.getIntExtra("changeType", 0);
-        switch (type) {
-            case CHANGE_TYPE_STU_NAME:
-                //更改用户名
-                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getStuName());
-                ed_new_message.setHint("新用户名");
-                tv_change_title.setText("更改用户名");
-                tv_old_message.setText("我现在的名字是");
-                tv_new_message.setText("修改后的名字是");
-                break;
-            case CHANGE_TYPE_SCHOOL:
-                //更改学校
-                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getSchool());
-                ed_new_message.setHint("新学校名");
-                tv_change_title.setText("更改学校");
-                tv_old_message.setText("我现在的学校是");
-                tv_new_message.setText("修改后的学校是");
-                break;
-            case CHANGE_TYPE_MOBILE:
-                //更改手机号
-                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getMobilePhoneNumber());
-                ed_new_message.setHint("新手机号");
-                tv_change_title.setText("更改手机号");
-                tv_old_message.setText("我现在的手机号是");
-                tv_new_message.setText("修改后的手机号是");
-                ll_verify.setVisibility(View.VISIBLE);
-                break;
-            case CHANGE_TYPE_EMAIL:
-                //更改邮箱
-                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getEmail());
-                ed_new_message.setHint("新邮箱");
-                tv_change_title.setText("更改邮箱");
-                tv_old_message.setText("我现在的邮箱是");
-                tv_new_message.setText("修改后的邮箱是");
-                break;
-
-            default:
-                break;
-        }
+//
+//        Intent intent = getIntent();
+//        type = intent.getIntExtra("changeType", 0);
+//        switch (type) {
+//            case CHANGE_TYPE_STU_NAME:
+//                //更改用户名
+//                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getStuName());
+//                ed_new_message.setHint("新用户名");
+//                tv_change_title.setText("更改用户名");
+//                tv_old_message.setText("我现在的名字是");
+//                tv_new_message.setText("修改后的名字是");
+//                break;
+//            case CHANGE_TYPE_SCHOOL:
+//                //更改学校
+//                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getSchool());
+//                ed_new_message.setHint("新学校名");
+//                tv_change_title.setText("更改学校");
+//                tv_old_message.setText("我现在的学校是");
+//                tv_new_message.setText("修改后的学校是");
+//                break;
+//            case CHANGE_TYPE_MOBILE:
+//                //更改手机号
+//                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getMobilePhoneNumber());
+//                ed_new_message.setHint("新手机号");
+//                tv_change_title.setText("更改手机号");
+//                tv_old_message.setText("我现在的手机号是");
+//                tv_new_message.setText("修改后的手机号是");
+//                ll_verify.setVisibility(View.VISIBLE);
+//                break;
+//            case CHANGE_TYPE_EMAIL:
+//                //更改邮箱
+//                ed_old_message.setText(BmobUser.getCurrentUser(Student.class).getEmail());
+//                ed_new_message.setHint("新邮箱");
+//                tv_change_title.setText("更改邮箱");
+//                tv_old_message.setText("我现在的邮箱是");
+//                tv_new_message.setText("修改后的邮箱是");
+//                break;
+//
+//            default:
+//                break;
+//        }
 
         //提交
-        btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                strNewMessage = ed_new_message.getText().toString();
-                newStudent = new Student();
-                switch (type) {
-                    case CHANGE_TYPE_STU_NAME:
-                        if (strNewMessage.isEmpty() || strNewMessage.length() > 10) {
-                            ed_new_message.setError("请输入小于10位用户名！！！");
-                            return;
-                        }
-                        newStudent.setStuName(strNewMessage);
-                        intentResult = RESULT_USER_NAME;
-                        break;
-                    case CHANGE_TYPE_SCHOOL:
-                        if (strNewMessage.isEmpty()) {
-                            ed_new_message.setError("学校名不能为空！！！");
-                            return;
-                        }
-                        newStudent.setSchool(strNewMessage);
-                        intentResult = RESULT_SCHOOL;
-                        break;
-                    case CHANGE_TYPE_MOBILE:
-                        String num = "[1][34578]\\d{9}";
-                        if (strNewMessage.isEmpty() || !strNewMessage.matches(num)) {
-                            ed_new_message.setError("请输入一个有效的手机号！！！");
-                            return;
-                        }
-                        //验证码不能为空
-                        if (ll_verify.getVisibility() != View.GONE  &&  ed_verify.getText().toString().isEmpty()) {
-                            ed_verify.setError("请输入验证码");
-                            return;
-                        }
-                        newStudent.setMobilePhoneNumber(strNewMessage);
-                        newStudent.setUsername(strNewMessage);
-                        intentResult = RESULT_MOBILE;
-                        break;
-                    case CHANGE_TYPE_EMAIL:
-                        if (strNewMessage.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(strNewMessage).matches()) {
-                            ed_new_message.setError("请输入一个有效的邮箱！！！");
-                            return;
-                        }
-                        newStudent.setEmail(strNewMessage);
-                        intentResult = RESULT_EMAIL;
-                        break;
-                    default:
-                        break;
-                }
-
-                if (type != CHANGE_TYPE_MOBILE) {
-                    stuUpdate();
-                } else {
-                    //验证码验证
-                    BmobSMS.verifySmsCode(ed_new_message.getText().toString(), ed_verify.getText().toString(), new UpdateListener() {
-                        @Override
-                        public void done(BmobException e) {
-                            if (e == null) {
-                                //短信验证码已验证成功
-                                stuUpdate();
-                            } else {
-                                Log.i("htht", "验证失败：code =" + e.getErrorCode() + ",msg = " + e.getLocalizedMessage() + "线程名      " + Thread.currentThread().getName());
-                                String errorMessage;
-                                switch (e.getErrorCode()) {
-                                    case 207:
-                                        errorMessage = "验证码错误，请重新输入 :)";
-                                        break;
-                                    default:
-                                        errorMessage = "出错了！！！";
-                                        break;
-
-                                }
-                                Toast.makeText(getBaseContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-
-            }
-        });
+//        btn_submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                strNewMessage = ed_new_message.getText().toString();
+//                newStudent = new Student();
+//                switch (type) {
+//                    case CHANGE_TYPE_STU_NAME:
+//                        if (strNewMessage.isEmpty() || strNewMessage.length() > 10) {
+//                            ed_new_message.setError("请输入小于10位用户名！！！");
+//                            return;
+//                        }
+//                        newStudent.setStuName(strNewMessage);
+//                        intentResult = RESULT_USER_NAME;
+//                        break;
+//                    case CHANGE_TYPE_SCHOOL:
+//                        if (strNewMessage.isEmpty()) {
+//                            ed_new_message.setError("学校名不能为空！！！");
+//                            return;
+//                        }
+//                        newStudent.setSchool(strNewMessage);
+//                        intentResult = RESULT_SCHOOL;
+//                        break;
+//                    case CHANGE_TYPE_MOBILE:
+//                        String num = "[1][34578]\\d{9}";
+//                        if (strNewMessage.isEmpty() || !strNewMessage.matches(num)) {
+//                            ed_new_message.setError("请输入一个有效的手机号！！！");
+//                            return;
+//                        }
+//                        //验证码不能为空
+//                        if (ll_verify.getVisibility() != View.GONE  &&  ed_verify.getText().toString().isEmpty()) {
+//                            ed_verify.setError("请输入验证码");
+//                            return;
+//                        }
+//                        newStudent.setMobilePhoneNumber(strNewMessage);
+//                        newStudent.setUsername(strNewMessage);
+//                        intentResult = RESULT_MOBILE;
+//                        break;
+//                    case CHANGE_TYPE_EMAIL:
+//                        if (strNewMessage.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(strNewMessage).matches()) {
+//                            ed_new_message.setError("请输入一个有效的邮箱！！！");
+//                            return;
+//                        }
+//                        newStudent.setEmail(strNewMessage);
+//                        intentResult = RESULT_EMAIL;
+//                        break;
+//                    default:
+//                        break;
+//                }
+//
+//                if (type != CHANGE_TYPE_MOBILE) {
+//                    stuUpdate();
+//                } else {
+//                    //验证码验证
+//                    BmobSMS.verifySmsCode(ed_new_message.getText().toString(), ed_verify.getText().toString(), new UpdateListener() {
+//                        @Override
+//                        public void done(BmobException e) {
+//                            if (e == null) {
+//                                //短信验证码已验证成功
+//                                stuUpdate();
+//                            } else {
+//                                Log.i("htht", "验证失败：code =" + e.getErrorCode() + ",msg = " + e.getLocalizedMessage() + "线程名      " + Thread.currentThread().getName());
+//                                String errorMessage;
+//                                switch (e.getErrorCode()) {
+//                                    case 207:
+//                                        errorMessage = "验证码错误，请重新输入 :)";
+//                                        break;
+//                                    default:
+//                                        errorMessage = "出错了！！！";
+//                                        break;
+//
+//                                }
+//                                Toast.makeText(getBaseContext(), errorMessage, Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                }
+//
+//            }
+//        });
     }
-
+//
     private void stuUpdate(){
         newStudent.update(BmobUser.getCurrentUser(Student.class).getObjectId(), new UpdateListener() {
             @Override
@@ -280,8 +247,8 @@ public class ChangeMessageActivity extends AppCompatActivity {
         bImageView = findViewById(R.id.imageview_person_back);
     }
 
-
-    //验证码倒计时类
+//
+//    //验证码倒计时类
     private class MyCountDownTimer extends CountDownTimer {
 
         public MyCountDownTimer(long millisInFuture, long countDownInterval) {

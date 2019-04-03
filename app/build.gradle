@@ -50,6 +50,10 @@ dependencies {
     implementation 'cn.bmob.android:http-legacy:1.0'
 
 
+    compile 'com.youth.banner:banner:1.4.9'//banner
+
+
+
 
 
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
