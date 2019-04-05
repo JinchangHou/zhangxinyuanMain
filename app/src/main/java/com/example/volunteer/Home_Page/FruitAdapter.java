@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.volunteer.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
 public class FruitAdapter extends RecyclerView.Adapter {
     private Context mContext;
     private List<Fruit> mFruitList;
-
+    private List<Integer>heights;
     public FruitAdapter(Context mContext, List<Fruit>mFruitList) {
         this.mContext=mContext;
         this.mFruitList=mFruitList;
@@ -51,9 +52,22 @@ public class FruitAdapter extends RecyclerView.Adapter {
         return holder;
     }
 
+    private void getRandomHeight(){//得到随机item的高度
+        heights = new ArrayList<>();
+        for (int i = 0; i < mFruitList.size(); i++) {
+            heights.add((int)(200+Math.random()*400)); Log.d("heights",heights.get(i).toString());
+        }
 
+    }
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        //实现瀑布流
+//        getRandomHeight();
+//
+//        ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
+//        params.height = heights.get(position);//把随机的高度赋予item布局
+//        holder.itemView.setLayoutParams(params);//把params设置给item布局
+
         ViewHolder holder11=(ViewHolder)holder;
         Fruit fruit=mFruitList.get(position);
         holder11.fruit_name.setText(fruit.getName());

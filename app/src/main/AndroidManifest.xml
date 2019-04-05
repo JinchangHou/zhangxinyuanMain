@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.volunteer">
-    
+
+    <!-- if you want to load images from the internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     //针对安卓9.0
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
-    <permission android:name="android.permission.INTERACT" android:protectionLevel="signature"/>
 
+    <permission
+        android:name="android.permission.INTERACT"
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -57,7 +63,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Fruits">
+            android:label="掌心愿">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -74,8 +80,13 @@
         <activity android:name=".shuoshuo.SHuoSHuoActivity" />
         <activity android:name=".shuoshuo.AddShuoShuo" />
         <activity android:name=".LBS.LBSActivity" />
-        <activity android:name=".personal_page.PersonPage"></activity>
-        <activity android:name=".personal_page.ChangeMessageActivity"></activity>
+        <activity android:name=".personal_page.PersonPage" />
+        <activity android:name=".personal_page.ChangeMessageActivity" />
+        <activity android:name=".Main_ui.WebView1Activity" />
+        <activity
+            android:name=".Main_ui.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".task.GetTaskActivity"></activity>
     </application>
 
 </manifest>

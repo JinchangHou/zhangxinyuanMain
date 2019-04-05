@@ -31,76 +31,102 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:text="发起任务"/>
+                android:text="发个说说"/>
 
         </android.support.v7.widget.Toolbar>
         <!-- scroll表示当RecycleView向上滚动的时候，Toolbar会跟着向上滑动并实现隐藏；enterAlways表示当RecycleView向下滑动并重新显示。snp表示Toolbar还没有完全隐藏或显示的时候，根据当前滚动的距离自动选择显示还是隐藏。-->
     </android.support.design.widget.AppBarLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="vertical">
-        <Button
-            android:id="@+id/take_photo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="take photo"/>
-        <Button
-            android:id="@+id/chose_from_album"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="chose from album"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:background="#4554d0"/>
+
 
     </LinearLayout>
+
 
     <android.support.v7.widget.CardView
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
+        android:layout_height="200dp"
+        android:background="@drawable/left_bg"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        >
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="添加说说图片"
+            android:maxLength="1000"
+            android:minLines="6"
+            android:padding="10dp"
+            android:textSize="14sp" />
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/add_photo"
+
+        />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/left_bg"
         android:layout_margin="5dp"
         app:cardCornerRadius="10dp"
         >
 
-        <LinearLayout
-
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:background="#79903e1e"
-            android:layout_height="wrap_content">
+
+            android:layout_height="180dp">
             <EditText
                 android:id="@+id/item_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="添加说说内容"
+                android:maxLength="1000"
+                android:minLines="6"
+                android:padding="10dp"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_font_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请输入描述"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="5dp"
-                android:textSize="16sp" />
-            <ImageView
-                android:id="@+id/picture"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/add"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/item_content"
+                android:paddingBottom="5dp"
+                android:paddingRight="15dp"
+                android:text="0/1000"
+                android:textSize="14sp" />
+        </RelativeLayout>
 
-                android:scaleType="centerCrop"/>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#c9bebe"/>
 
-            <Button
-                android:id="@+id/send"
-                android:layout_width="70dp"
-                android:layout_gravity="end"
-                android:text="发送"
-                android:layout_height="40dp"/>
-        </LinearLayout>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/btn_submit"
+        android:layout_marginTop="24dp"
+        android:text="完成编辑" />
 
 
 </LinearLayout>

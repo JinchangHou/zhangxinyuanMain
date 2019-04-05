@@ -1,6 +1,7 @@
 package com.example.volunteer.shuoshuo;
 
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,9 +17,15 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +51,9 @@ public class AddShuoShuo extends AppCompatActivity {
     private Uri ImageUri;
 //    private Uri destinationUri;
     private String ImagePath;
+
+
+    private EditText text;
     File outputImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,69 +61,64 @@ public class AddShuoShuo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_add_shuo_shuo);
+
+
+        text=  findViewById(R.id.item_content);
+        text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                TextView fontCount=findViewById(R.id.tv_font_count);
+                Log.d("font",s.length()+"");
+                fontCount.setText(s.length() + "/1000");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
         picture= (ImageView) findViewById(R.id.picture);
+        picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(AddShuoShuo.this,R.style.normalDialogAnim);
+                View view = View.inflate(AddShuoShuo.this, R.layout.dialog_bottom, null);
+                dialog.setContentView(view);
+                dialog.setCanceledOnTouchOutside(true);
+                view.setMinimumHeight((int) (ScreenSizeUtils.getInstance(AddShuoShuo.this).getScreenHeight() * 0.23f));
+                Window dialogWindow = dialog.getWindow();
+                WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+                lp.width = (int) (ScreenSizeUtils.getInstance(AddShuoShuo.this).getScreenWidth() * 0.9f);
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialogWindow.setAttributes(lp);
+                dialog.show();
+                view.findViewById(R.id.take_photo).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        exeTakePhoto();
+                    }
+                });
+                view.findViewById(R.id.chose_from_album).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        exechooseFromAlbum();
+                    }
+                });
+            }
+        });
+
         takephoto= (Button) findViewById(R.id.take_photo);
+
         Log.d("AddShuoShuo",""+(takephoto==null));
         Log.d("AddShuoShuo",""+(picture==null));
-        takephoto.setOnClickListener(new View.OnClickListener() {
-        //点击调用相机
-            @Override
-            public void onClick(View v) {
-                Log.d("AddShuoShuo", "execuate");
-                //创建file对象,用于存储拍照后的照片
-                outputImage=new File(getExternalCacheDir(), "output_image.jpg");
-                ImagePath="output_image.jpg";
-                try {
-                //                      关联缓存目录
-                    if (outputImage.exists()) {
-                    //看看文件是否已经存在，，，如果存在就删除
-                        outputImage.delete();
-                    }
-                    outputImage.createNewFile();
-                    //把旧的删除了，，创建一个新的
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                //下面是根据文件对象生成一个uri对象
-                if (Build.VERSION.SDK_INT >= 24) {
-                //判断安卓版本、sdk24以上安全性提高   封装uri  使用内容提供器（必须在AndroidManifest中注册）
-                    ImageUri = FileProvider.getUriForFile(AddShuoShuo.this,
-                            "com.example.volunteer.shuoshuo.AddShuoShuo.fileprovider", outputImage);
-                }
-                //      获取文件uri的方法，，，File.getUriForFile();，，传入context，authority，file对象
-                else {
-                    //sdk24以下uri尚未封装，，，直接用Uri.fromFile(file对象)获取 uri
-                    ImageUri = Uri.fromFile(outputImage);
-                }
 
-                Log.d("lujing","ImageUri"+ImageUri.toString());
-                Log.d("lujing","组合的"+getExternalCacheDir());
-                //启动相机                     启动相机的action，android.media.action.IMAGE_CAPTURE
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                //EXTRA_OUTPUT是键，ImageUri是值，传给回调方法
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, ImageUri);
-                //startActivityResult与startActivity的区别就是有回调方法
-                startActivityForResult(intent, TAKE_PHOTO);
-            }
-        });
 
-        //这个调用相册图片是个重头戏
-        findViewById(R.id.chose_from_album).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //由于WRITE_EXTERNAL_STORAGE是危险权限 要获得需要用户同意//先判断用户是否已经给了权限，如果没有，，，就请求一下
-                if (ContextCompat.checkSelfPermission(AddShuoShuo.this,
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager
-                        /*用于检索与应用程序相关的各种信息的类*/.PERMISSION_GRANTED) {
 
-                    ActivityCompat.requestPermissions/*调用回调方法*/(AddShuoShuo.this,
-                            new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-
-                } else {                  //这个String里面放的都是各种权限      后面的1是id，辨识符
-                    openAlbum();
-                }
-            }
-        });
 
         findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +134,8 @@ public class AddShuoShuo extends AppCompatActivity {
                         Log.d("AddShuoShuogetURL", "e==null?" + (e == null));
                             if (e == null) {
                                 Log.d("AddShuoShuogetURL", "" + bmobFile.getUrl());
-                                TextView text= (TextView) findViewById(R.id.item_content);
+                                EditText text=  findViewById(R.id.item_content);
+
                                 String s=text.getText().toString();
                                 upload(bmobFile.getUrl(),s);
                             }
@@ -141,6 +147,56 @@ public class AddShuoShuo extends AppCompatActivity {
 
             }
         });
+    }
+    private void exechooseFromAlbum(){
+        //由于WRITE_EXTERNAL_STORAGE是危险权限 要获得需要用户同意//先判断用户是否已经给了权限，如果没有，，，就请求一下
+        if (ContextCompat.checkSelfPermission(AddShuoShuo.this,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager
+                        /*用于检索与应用程序相关的各种信息的类*/.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions/*调用回调方法*/(AddShuoShuo.this,
+                    new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
+        } else {                  //这个String里面放的都是各种权限      后面的1是id，辨识符
+            openAlbum();
+        }
+    }
+    private void exeTakePhoto(){
+        Log.d("AddShuoShuo", "execuate");
+        //创建file对象,用于存储拍照后的照片
+        outputImage=new File(getExternalCacheDir(), "output_image.jpg");
+        ImagePath="output_image.jpg";
+        try {
+            //                      关联缓存目录
+            if (outputImage.exists()) {
+                //看看文件是否已经存在，，，如果存在就删除
+                outputImage.delete();
+            }
+            outputImage.createNewFile();
+            //把旧的删除了，，创建一个新的
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //下面是根据文件对象生成一个uri对象
+        if (Build.VERSION.SDK_INT >= 24) {
+            //判断安卓版本、sdk24以上安全性提高   封装uri  使用内容提供器（必须在AndroidManifest中注册）
+            ImageUri = FileProvider.getUriForFile(AddShuoShuo.this,
+                    "com.example.volunteer.shuoshuo.AddShuoShuo.fileprovider", outputImage);
+        }
+        //      获取文件uri的方法，，，File.getUriForFile();，，传入context，authority，file对象
+        else {
+            //sdk24以下uri尚未封装，，，直接用Uri.fromFile(file对象)获取 uri
+            ImageUri = Uri.fromFile(outputImage);
+        }
+
+        Log.d("lujing","ImageUri"+ImageUri.toString());
+        Log.d("lujing","组合的"+getExternalCacheDir());
+        //启动相机                     启动相机的action，android.media.action.IMAGE_CAPTURE
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        //EXTRA_OUTPUT是键，ImageUri是值，传给回调方法
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, ImageUri);
+        //startActivityResult与startActivity的区别就是有回调方法
+        startActivityForResult(intent, TAKE_PHOTO);
     }
 
     private void openAlbum(){

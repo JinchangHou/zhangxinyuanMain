@@ -10,20 +10,20 @@
     菜单中的 action 只会显示文字。
     如果设置为never则会显示在展开菜单项中（也就是所谓的三个点）
     -->
-    <item
-        android:id="@+id/backup"
-        android:icon="@drawable/backup"
-        android:title="Backup"
-        app:showAsAction="always"
-        />
-    <item
-        android:id="@+id/delete"
-        android:icon="@drawable/delete"
-        android:title="delete"
-        app:showAsAction="always"/>
+    <!--<item-->
+        <!--android:id="@+id/backup"-->
+        <!--android:icon="@drawable/backup"-->
+        <!--android:title="Backup"-->
+        <!--app:showAsAction="always"-->
+        <!--/>-->
+    <!--<item-->
+        <!--android:id="@+id/delete"-->
+        <!--android:icon="@drawable/delete"-->
+        <!--android:title="delete"-->
+        <!--app:showAsAction="always"/>-->
     <item
         android:id="@+id/setting"
-        android:icon="@drawable/setting"
+        android:icon="@drawable/threee_dian"
         android:title="setting"
         app:showAsAction="always"/>
 </menu>

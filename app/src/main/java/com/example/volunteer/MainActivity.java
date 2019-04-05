@@ -11,22 +11,33 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.volunteer.Activity.MallActivity;
 import com.example.volunteer.Activity.PersonActivity;
 import com.example.volunteer.Home_Page.Fruit;
 import com.example.volunteer.Home_Page.FruitAdapter;
 import com.example.volunteer.LBS.LBSActivity;
+import com.example.volunteer.Main_ui.GlideImageLoader;
+import com.example.volunteer.Main_ui.SettingsActivity;
+import com.example.volunteer.Main_ui.WebView1Activity;
 import com.example.volunteer.personal_page.PersonPage;
 import com.example.volunteer.shuoshuo.SHuoSHuoActivity;
 import com.example.volunteer.stack.ScreenManager;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,18 +46,22 @@ import java.util.Random;
 import cn.bmob.v3.Bmob;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
     private Toolbar toolbar;
 
-    private Fruit[] fruits={new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item)};
+    private Fruit[] fruits={new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item),new Fruit("1111",R.drawable.item)};
     private List<Fruit> fruitList=new ArrayList<>();
     private FruitAdapter adapter;
+
+
+
+    //mainUI
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private void initFruits(){
         fruitList.clear();
-        for(int i=0;i<50;i++){
+        for(int i=0;i<10;i++){
             Random random=new Random();
             int index=random.nextInt(fruits.length);
             fruitList.add(fruits[index]);
@@ -76,11 +91,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_main);
+        List<String>images=new ArrayList<String>();
+        images.add("https://cdn.dribbble.com/users/52758/screenshots/6274884/boheme_logos_jay_fletcher_dribbble.jpg");
+        images.add("https://cdn.dribbble.com/users/52084/screenshots/6271548/driibb.jpg");
+        images.add("https://cdn.dribbble.com/users/4664/screenshots/6276419/northstandard_waves.jpg");
+        images.add("https://cdn.dribbble.com/users/66340/screenshots/6271717/tubularui_2x.jpg");
+        List<String> list_title=new ArrayList<>();
+        list_title.add("好好学习");
+        list_title.add("天天向上");
+        list_title.add("热爱劳动");
+        list_title.add("不搞对象");
+        Banner banner = (Banner) findViewById(R.id.banner);
+        //设置图片加载器
+        banner.setImageLoader(new GlideImageLoader());
+        //设置图片集合
+        banner.setImages(images);
+        //设置轮播图的标题集合
+        banner.setBannerTitles(list_title);
+        //设置内置样式，共有六种可以点入方法内逐一体验使用。
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+        //设置banner动画效果
+        banner.setBannerAnimation(Transformer.DepthPage);
+        //banner设置方法全部调用完毕时最后调用
+        banner.start();
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent =new Intent(MainActivity.this, WebView1Activity.class);
+                startActivity(intent);
+            }
+        });
         //ToolBar代替ActionBar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);//将ToolBar实例传入
@@ -89,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);//显示导航按钮
-            actionBar.setHomeAsUpIndicator(R.drawable.menu);// 设置导航图标
+            actionBar.setHomeAsUpIndicator(R.drawable.more);// 设置导航图标
         }
 
         mDrawerLayout= (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,6 +190,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent2 =new Intent(MainActivity.this, PersonActivity.class);
                         startActivity(intent2);
                         break;
+                    case R.id.nav_setting:
+                        Intent intentc=new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(intentc);
                     default:
                         break;
 
@@ -168,22 +218,26 @@ public class MainActivity extends AppCompatActivity {
         });
         initFruits();
         RecyclerView recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
-        GridLayoutManager layoutManager =new GridLayoutManager(this,2);
-        recyclerView.setLayoutManager(layoutManager);
+        LinearLayoutManager layoutManager3=new LinearLayoutManager(this);
+        layoutManager3.setOrientation(LinearLayoutManager.HORIZONTAL);
+        GridLayoutManager layoutManager =new GridLayoutManager(this,1);
+        StaggeredGridLayoutManager layoutManager1=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager3);
         adapter=new FruitAdapter(this,fruitList);
         recyclerView.setAdapter(adapter);
+        Glide.with(this).load("https://goss.veer.com/creative/vcg/veer/1600water/veer-143458687.jpg").into((ImageView) findViewById(R.id.main_ui_zhaomu));
+        Glide.with(this).load("https://goss3.veer.com/creative/vcg/veer/612/veer-141760204.jpg").into((ImageView) findViewById(R.id.main_ui_canjia));
 
-
-        swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-        //进度条颜色
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        //设置下拉刷新监听器
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
+//        swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+//        //进度条颜色
+//        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+//        //设置下拉刷新监听器
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                refresh();
+//            }
+//        });
     }
     //加载toolbar文件
 
