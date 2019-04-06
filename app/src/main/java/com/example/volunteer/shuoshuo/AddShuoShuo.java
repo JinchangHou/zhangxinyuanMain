@@ -21,6 +21,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.volunteer.MainActivity;
 import com.example.volunteer.R;
 import com.example.volunteer.stack.ScreenManager;
 
@@ -112,6 +114,14 @@ public class AddShuoShuo extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.backup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                finish();
+                Intent intent=new Intent(AddShuoShuo.this,SHuoSHuoActivity.class);
+                startActivity(intent);
+            }
+        });
         takephoto= (Button) findViewById(R.id.take_photo);
 
         Log.d("AddShuoShuo",""+(takephoto==null));
@@ -348,5 +358,18 @@ public class AddShuoShuo extends AppCompatActivity {
         content.save();
         Intent intent=new Intent(AddShuoShuo.this,SHuoSHuoActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in Action Bar clicked; go home
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

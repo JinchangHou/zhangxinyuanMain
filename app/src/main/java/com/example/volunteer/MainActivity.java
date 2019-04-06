@@ -34,6 +34,7 @@ import com.example.volunteer.Main_ui.WebView1Activity;
 import com.example.volunteer.personal_page.PersonPage;
 import com.example.volunteer.shuoshuo.SHuoSHuoActivity;
 import com.example.volunteer.stack.ScreenManager;
+import com.example.volunteer.task.TaskTabActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -182,6 +183,8 @@ public class MainActivity extends AppCompatActivity  {
                         Log.e("nav_mail","jjjjjjj");
                         break;
                     case R.id.nav_task://滑动菜单显示键
+                        Intent intent4=new Intent(MainActivity.this, TaskTabActivity.class);
+                    startActivity(intent4);
                         Log.e("nav_task","jjjjjjj");
 
                         break;

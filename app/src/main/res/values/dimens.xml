@@ -7,4 +7,5 @@
     <dimen name="edit_height_37dp">37dp</dimen>
     <dimen name="title_height_44dp">44dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

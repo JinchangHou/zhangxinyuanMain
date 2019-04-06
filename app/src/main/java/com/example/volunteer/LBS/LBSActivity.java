@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,7 +69,14 @@ public class LBSActivity extends AppCompatActivity {
         //在onCreate方法最后，，还要给baiduMap初始化，，，，设置我的位置
         baiduMap=mapView.getMap();//给baiduMap 初始化
         baiduMap.setMyLocationEnabled(true);
+        findViewById(R.id.backup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
     //把地图移动到当前位置
     private void navigateTo(BDLocation location){
         if(isFirstLocate){

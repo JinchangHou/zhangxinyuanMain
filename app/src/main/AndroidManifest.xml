@@ -86,7 +86,11 @@
         <activity
             android:name=".Main_ui.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".task.GetTaskActivity"></activity>
+        <activity android:name=".task.TaskTabActivity" />
+        <activity android:name=".task.GetTaskActivity" />
+        <activity android:name=".task.PublishTaskActivity" />
+        <activity android:name=".task.ViewTaskActivity" />
+        <activity android:name=".task.TaskContentActivity"></activity>
     </application>
 
 </manifest>

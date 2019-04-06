@@ -55,15 +55,20 @@ public class ChangeMessageActivity extends AppCompatActivity {
 
 //        Bmob.initialize(this,"706b623303ad79f7265aa54f740c3299");
 
-
-
-        //左上角返回
-        bImageView.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.backup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+//        //左上角返回
+//        bImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
         //点击发送验证码
         btn_verify.setOnClickListener(new View.OnClickListener() {
@@ -244,7 +249,7 @@ public class ChangeMessageActivity extends AppCompatActivity {
         btn_verify = findViewById(R.id.btn_verify);
 
         //左上角返回图标
-        bImageView = findViewById(R.id.imageview_person_back);
+
     }
 
 //
