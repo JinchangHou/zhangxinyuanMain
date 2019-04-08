@@ -21,6 +21,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -117,9 +118,9 @@ public class AddShuoShuo extends AppCompatActivity {
         findViewById(R.id.backup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                finish();
-                Intent intent=new Intent(AddShuoShuo.this,SHuoSHuoActivity.class);
-                startActivity(intent);
+                finish();
+//                Intent intent=new Intent(AddShuoShuo.this,SHuoSHuoActivity.class);
+//                startActivity(intent);
             }
         });
         takephoto= (Button) findViewById(R.id.take_photo);
@@ -358,6 +359,7 @@ public class AddShuoShuo extends AppCompatActivity {
         content.save();
         Intent intent=new Intent(AddShuoShuo.this,SHuoSHuoActivity.class);
         startActivity(intent);
+        finish();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -371,5 +373,12 @@ public class AddShuoShuo extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            this.finish();
+        }
+        return true;
     }
 }

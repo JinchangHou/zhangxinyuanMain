@@ -39,7 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final  Task task =mTaskList.get(position);
         holder.value.setText(""+task.getValue()+"个爱心币");
@@ -54,6 +54,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
                 intent.putExtra("position",position);
                 context.startActivity(intent);
+//                if(GetTaskActivity.class.isInstance(context)){
+//                    GetTaskActivity activity =(GetTaskActivity)context;
+//                    activity.finish();
+//                }
+
             }
         });
 

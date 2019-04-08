@@ -68,6 +68,7 @@ public class SHuoSHuoActivity extends AppCompatActivity {
                 Intent intent=new Intent(SHuoSHuoActivity.this, AddShuoShuo.class);
 //                intent.putExtra("listobj",(Serializable)contentList);
                 startActivity(intent);
+                finish();
 
 
             }

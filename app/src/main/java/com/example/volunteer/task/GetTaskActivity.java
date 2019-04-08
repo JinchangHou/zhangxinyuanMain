@@ -1,5 +1,9 @@
 package com.example.volunteer.task;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -20,18 +24,53 @@ import cn.bmob.v3.listener.FindListener;
 
 public class GetTaskActivity extends AppCompatActivity {
     private RecyclerView taskRecyView;
+    public TaskAdapter adapter;
+    private static Context instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_get_task2);
+
+        IntentFilter intentFilter=new IntentFilter();
+        intentFilter.addAction("action.refreshTask");
+        registerReceiver(mRefreshBroadcastReceiver,intentFilter);
+
         taskRecyView=findViewById(R.id.task_recyclerView);
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
         taskRecyView.setLayoutManager(layoutManager);
 
-        addData();
+//        addData();
         requestData();
+        instance=this;
 
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //设置刷新操作
+//        Toast.makeText(this,"restart",Toast.LENGTH_LONG).show();
+        adapter.notifyDataSetChanged();
+    }
+
+    public static Context getInstance(){
+        return instance;
+    }
+
+
+
+
+    private BroadcastReceiver mRefreshBroadcastReceiver=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("广播","广播成功");
+           //如何在广播接收器中实现界面刷新
+
+        }
+    };
+
+
 
     private void requestData(){
         final BmobQuery<Task> query=new BmobQuery<Task>();
@@ -42,7 +81,7 @@ public class GetTaskActivity extends AppCompatActivity {
             public void done(List<Task> list, BmobException e) {
 
                 if(e==null){
-                    TaskAdapter adapter=new TaskAdapter(GetTaskActivity.this,list);
+                 adapter=new TaskAdapter(GetTaskActivity.this,list);
                     taskRecyView.setAdapter(adapter);
                     Log.d("fuck","s");
                 }

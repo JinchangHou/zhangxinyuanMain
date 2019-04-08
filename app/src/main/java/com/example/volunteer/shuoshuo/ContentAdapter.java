@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.volunteer.R;
 
-
 import java.util.List;
 
 import cn.bmob.v3.exception.BmobException;
@@ -55,7 +54,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             public void onClick(View v) {
                 notifyDataSetChanged();
                 int Position=holder.getAdapterPosition();
-
+//
 //                Intent intent =new Intent (context,ContentActivity.class);
 //                context.startActivity(intent);
 //                Toast.makeText(context,"djks",Toast.LENGTH_SHORT).show();

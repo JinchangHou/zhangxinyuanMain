@@ -4,6 +4,7 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TabHost;
 
 import com.example.volunteer.R;
@@ -38,5 +39,27 @@ public class TaskTabActivity extends TabActivity {
                 setIndicator("查看任务", res.getDrawable(android.R.drawable.ic_media_next)).setContent(intent);
         TaskTabActivity.mTabHost.addTab(tabSpec);
         mTabHost.setCurrentTabByTag("领取任务");
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                switch (tabId){
+                    case "领取任务":
+                        mTabHost.setCurrentTabByTag("领取任务");
+                        break;
+                    case "发布任务":
+                        mTabHost.setCurrentTabByTag("发布任务");
+                        break;
+                    case "查看任务":
+                        mTabHost.setCurrentTabByTag("查看任务");
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        finish();
+        return super.onKeyDown(keyCode, event);
     }
 }

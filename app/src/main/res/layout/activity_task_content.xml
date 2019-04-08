@@ -85,13 +85,13 @@
                             android:layout_marginLeft="30dp"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/images"/>
+                            />
                         <TextView
                             android:id="@+id/publish_man"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="祥林嫂"
+
                             android:layout_marginLeft="20dp"
                             />
                     </LinearLayout>
@@ -286,6 +286,15 @@
                     android:layout_height="match_parent"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
+        <Button
+        android:id="@+id/get_task"
+            android:background="@drawable/btn_submit_pressed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:textSize="19sp"
+        android:text="领取任务>>>"/>
+
     </LinearLayout>
+
 
 </ScrollView>
