@@ -8,25 +8,21 @@
         <item
             android:id="@+id/nav_call"
             android:icon="@drawable/mall"
-            android:title="商城"/>
+            android:title="优选"/>
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/friends"
-            android:title="任务领发"
+            android:title="身边公益"
             />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/location"
             android:title="签到定位"/>
-        <item
-            android:id="@+id/nav_mail"
-            android:icon="@drawable/mail"
-            android:title="mail"
-            />
+
         <item
             android:id="@+id/nav_task"
             android:icon="@drawable/task"
-            android:title="task"/>
+            android:title="做个任务"/>
         <item
             android:id="@+id/nav_boy"
             android:icon="@drawable/love"

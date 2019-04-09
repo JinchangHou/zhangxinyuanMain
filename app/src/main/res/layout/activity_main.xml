@@ -78,6 +78,7 @@
                         android:orientation="vertical"
                         >
                         <LinearLayout
+                            android:id="@+id/zuorenwu"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:orientation="horizontal"
@@ -96,12 +97,13 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="活动招募"
+                                    android:text="做任务"
                                     android:gravity="center"
                                     android:layout_weight="1"
                                     />
                             </LinearLayout>
                             <LinearLayout
+                                android:id="@+id/shenbiangongyi"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -120,26 +122,9 @@
                                     android:layout_weight="1"
                                     />
                             </LinearLayout>
+
                             <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:layout_height="match_parent">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="2"
-                                    android:layout_margin="5dp"
-                                    android:src="@mipmap/aixin"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:text="加入组织"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
-                                    />
-                            </LinearLayout>
-                            <LinearLayout
+                                android:id="@+id/aixinxiaowo"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -153,7 +138,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="兑福利"
+                                    android:text="爱心小窝"
                                     android:gravity="center"
                                     android:layout_weight="1"
                                     />
@@ -165,6 +150,7 @@
                             android:layout_weight="1">
                             <LinearLayout
                                 android:layout_width="0dp"
+                                android:id="@+id/gerenzhuye"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
                                 android:layout_height="match_parent">
@@ -177,50 +163,35 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="爱心榜"
+                                    android:text="个人主页"
                                     android:gravity="center"
                                     android:layout_weight="1"
                                     />
                             </LinearLayout>
                             <LinearLayout
+                                android:id="@+id/dakaqiandao"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
                                 android:layout_height="match_parent">
+
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="10dp"
                                     android:layout_weight="2"
-                                    android:src="@mipmap/baoxian"/>
+                                    android:src="@mipmap/dakaqiandao" />
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:text="领保险"
+                                    android:text="打卡签到"
                                     android:gravity="center"
                                     android:layout_weight="1"
                                     />
                             </LinearLayout>
+
                             <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:layout_height="match_parent">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_margin="9dp"
-                                    android:layout_weight="2"
-                                    android:src="@mipmap/chengxin"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:text="诚信分"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
-                                    />
-                            </LinearLayout>
-                            <LinearLayout
+                                android:id="@+id/youxuan"
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -258,7 +229,7 @@
 
 
                         <LinearLayout
-
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="330dp"
                             android:orientation="horizontal"

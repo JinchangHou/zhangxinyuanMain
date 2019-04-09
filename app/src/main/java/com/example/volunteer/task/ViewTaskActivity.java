@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.widget.Toast;
 
 import com.example.volunteer.Javabean.MyTask;
 import com.example.volunteer.Javabean.Task;
@@ -34,9 +33,9 @@ public class ViewTaskActivity extends AppCompatActivity {
             @Override
             public void done(User user, BmobException e) {
                 if (e == null) {
-                    Toast.makeText(ViewTaskActivity.this,"注册成功",Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ViewTaskActivity.this,"注册成功",Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(ViewTaskActivity.this,"注册失败",Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ViewTaskActivity.this,"注册失败",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -57,7 +56,7 @@ public class ViewTaskActivity extends AppCompatActivity {
 
 //                Toast.makeText(ViewTaskActivity.this,"taskContentAdapter查询成功",Toast.LENGTH_LONG).show();
                 if(e==null){
-                    Toast.makeText(ViewTaskActivity.this,"taskContentAdapter查询成功",Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ViewTaskActivity.this,"taskContentAdapter查询成功",Toast.LENGTH_LONG).show();
                     adapter=new MyTaskAdapter(ViewTaskActivity.this,list);
                     recyclerView.setAdapter(adapter);
                 }

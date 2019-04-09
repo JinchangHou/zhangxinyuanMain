@@ -182,7 +182,7 @@
                     android:id="@+id/tv_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="292081023@gmail.com"
+                    android:text="2920819004@qq.com"
                     android:background="@drawable/actionsheet_bottom_normal"
                     android:ellipsize="end"
                     android:gravity="center|right"

@@ -65,7 +65,7 @@ public class AddShuoShuo extends AppCompatActivity {
         ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_add_shuo_shuo);
 
-
+        //输出字数
         text=  findViewById(R.id.item_content);
         text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -142,11 +142,9 @@ public class AddShuoShuo extends AppCompatActivity {
                     bmobFile.upload(new UploadFileListener() {
                         @Override
                         public void done(BmobException e) {
-                        Log.d("AddShuoShuogetURL", "e==null?" + (e == null));
-                            if (e == null) {
-                                Log.d("AddShuoShuogetURL", "" + bmobFile.getUrl());
-                                EditText text=  findViewById(R.id.item_content);
 
+                            if (e == null) {
+                                EditText text=  findViewById(R.id.item_content);
                                 String s=text.getText().toString();
                                 upload(bmobFile.getUrl(),s);
                             }

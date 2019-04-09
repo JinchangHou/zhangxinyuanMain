@@ -99,6 +99,80 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         ScreenManager.getScreenManager().pushActivity(this);
         setContentView(R.layout.activity_main);
+
+
+
+        //主页六个图标点击事件
+        findViewById(R.id.zuorenwu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,TaskTabActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        findViewById(R.id.shenbiangongyi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,SHuoSHuoActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.aixinxiaowo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,PersonActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.gerenzhuye).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,PersonPage.class);
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.dakaqiandao).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,LBSActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.youxuan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,MallActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         List<String>images=new ArrayList<String>();
         images.add("https://cdn.dribbble.com/users/52758/screenshots/6274884/boheme_logos_jay_fletcher_dribbble.jpg");
         images.add("https://cdn.dribbble.com/users/52084/screenshots/6271548/driibb.jpg");
@@ -108,7 +182,7 @@ public class MainActivity extends AppCompatActivity  {
         list_title.add("好好学习");
         list_title.add("天天向上");
         list_title.add("热爱劳动");
-        list_title.add("不搞对象");
+        list_title.add("助人为乐");
         Banner banner = (Banner) findViewById(R.id.banner);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
@@ -179,9 +253,7 @@ public class MainActivity extends AppCompatActivity  {
                         Intent intent=new Intent(MainActivity.this,LBSActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.nav_mail://滑动菜单显示键
-                        Log.e("nav_mail","jjjjjjj");
-                        break;
+
                     case R.id.nav_task://滑动菜单显示键
                         Intent intent4=new Intent(MainActivity.this, TaskTabActivity.class);
                     startActivity(intent4);

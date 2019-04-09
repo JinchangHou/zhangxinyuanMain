@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:text="发个说说"/>
+                android:text="发个公益"/>
 
         </android.support.v7.widget.Toolbar>
         <!-- scroll表示当RecycleView向上滚动的时候，Toolbar会跟着向上滑动并实现隐藏；enterAlways表示当RecycleView向下滑动并重新显示。snp表示Toolbar还没有完全隐藏或显示的时候，根据当前滚动的距离自动选择显示还是隐藏。-->
@@ -62,7 +62,7 @@
             android:layout_alignParentTop="true"
             android:background="@null"
             android:gravity="top"
-            android:hint="添加说说图片"
+            android:hint="添加公益图片"
             android:maxLength="1000"
             android:minLines="6"
             android:padding="10dp"
@@ -98,7 +98,7 @@
                 android:layout_alignParentTop="true"
                 android:background="@null"
                 android:gravity="top"
-                android:hint="添加说说内容"
+                android:hint="添加公益内容"
                 android:maxLength="1000"
                 android:minLines="6"
                 android:padding="10dp"

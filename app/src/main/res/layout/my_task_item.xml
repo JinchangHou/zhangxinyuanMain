@@ -92,6 +92,7 @@
                 android:orientation="horizontal">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_gravity="left"
+                    android:id="@+id/icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/images"

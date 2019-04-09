@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.volunteer.Javabean.MyTask;
 import com.example.volunteer.LBS.LBSActivity;
 import com.example.volunteer.R;
@@ -38,8 +39,8 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
         holder.leibie.setText(myTask.getLeibie()+"");
         holder.title.setText(myTask.getTitle()+"");
         holder.time.setText(myTask.getStartTime()+"");
-//        Glide.with(context).load(myTask.getIcon()).into(holder.icon);
-//        Glide.with(context).load(myTask.getPicture()).into(holder.picture);
+        Glide.with(context).load(myTask.getIcon()).into(holder.icon);
+        Glide.with(context).load(myTask.getPicture()).into(holder.picture);
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context="com.example.volunteer.Activity.LoginActivity">
 
@@ -33,16 +34,37 @@
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:hint="账号"/>
     <EditText
         android:id="@+id/et_paw"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:hint="密码"/>
-    <Button
-        android:id="@+id/bt_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="登录"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="80dp"
+        android:layout_height="180dp">
+        <Button
+
+            android:layout_gravity="center"
+            android:id="@+id/bt_login"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/left_bg"
+            android:layout_height="wrap_content"
+            android:text="登录"/>
+        <Button
+
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/left_bg"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="注册"/>
+
+    </LinearLayout>
 </LinearLayout>
