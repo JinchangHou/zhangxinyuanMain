@@ -52,6 +52,10 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
                 }
             }
         });
+        if(myTask.getIsexed()==true){
+            holder.view.setBackgroundColor(R.color.black);
+            holder.state.setText("已完成");
+        }
 
     }
 

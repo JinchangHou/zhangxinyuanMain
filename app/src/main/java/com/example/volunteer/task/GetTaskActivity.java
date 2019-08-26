@@ -81,7 +81,7 @@ public class GetTaskActivity extends AppCompatActivity {
             public void done(List<Task> list, BmobException e) {
 
                 if(e==null){
-                 adapter=new TaskAdapter(GetTaskActivity.this,list);
+                    adapter=new TaskAdapter(GetTaskActivity.this,list);
                     taskRecyView.setAdapter(adapter);
                     Log.d("fuck","s");
                 }

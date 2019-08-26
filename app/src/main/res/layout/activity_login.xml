@@ -6,65 +6,94 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical"
-    tools:context="com.example.volunteer.Activity.LoginActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!-- ToolBar代替ActionBar,,,解决toolBar被覆盖问题-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:layout_scrollFlags="scroll|enterAlways|snap">
+   >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="欢迎登录掌心愿"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/img_20dp"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        </android.support.v7.widget.Toolbar>
-        <!-- scroll表示当RecycleView向上滚动的时候，Toolbar会跟着向上滑动并实现隐藏；enterAlways表示当RecycleView向下滑动并重新显示。snp表示Toolbar还没有完全隐藏或显示的时候，根据当前滚动的距离自动选择显示还是隐藏。-->
-    </android.support.design.widget.AppBarLayout>
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="账号"/>
-    <EditText
-        android:id="@+id/et_paw"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="密码"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="即将开启新世界"
+            android:textSize="20sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:id="@+id/profile_image"
+        android:layout_width="95dp"
+        android:layout_gravity="center"
+        android:layout_height="97dp"
+        android:src="@drawable/plane" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
         android:layout_marginTop="80dp"
-        android:layout_height="180dp">
-        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-            android:layout_gravity="center"
-            android:id="@+id/bt_login"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/left_bg"
+        <TextView
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录"/>
-        <Button
+            android:text="用户名：" />
 
-            android:layout_gravity="center"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/left_bg"
-            android:layout_marginLeft="30dp"
+        <EditText
+            android:id="@+id/main_name"
+
+            android:layout_width="244dp"
             android:layout_height="wrap_content"
-            android:text="注册"/>
-
+            android:text="18326188191" />
     </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密    码：" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/main_password"
+
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:text="18326188191" />
+    </LinearLayout>
+
+    <Button
+
+        android:background="@drawable/button_bg2"
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="点击登录" />
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="还没有账号？立即注册"/>
+
+
 </LinearLayout>

@@ -13,5 +13,8 @@
     <color name="colorText">#8A000000</color>
     <color name="black">#000000</color>
     <color name="orange2">#ff6940</color>
-
+    <color name="dskfa">#91c26a</color>
+    <color name="gray">#C0C0C0</color>
+    <color name="textcolor_strong">#000000</color>
+    <color name="code">#92ffffff</color>
 </resources>

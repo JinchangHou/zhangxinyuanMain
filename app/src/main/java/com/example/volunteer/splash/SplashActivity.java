@@ -47,7 +47,7 @@ public class SplashActivity extends AppCompatActivity {
     private void processLogic() {
         //设置数据源
         BGALocalImageSize localImageSize = new BGALocalImageSize(720, 1280, 320, 640);
-        mBackgroundBanner.setData(localImageSize, ImageView.ScaleType.CENTER_CROP,R.drawable.images,R.drawable.guide_background_2,R.drawable.guide_background_3);
+        mBackgroundBanner.setData(localImageSize, ImageView.ScaleType.CENTER_CROP,R.drawable.splash_1,R.drawable.splash_2,R.drawable.splash_3);
 
     }
 

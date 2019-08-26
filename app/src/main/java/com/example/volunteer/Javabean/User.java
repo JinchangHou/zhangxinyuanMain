@@ -3,13 +3,14 @@ package com.example.volunteer.Javabean;
 import java.util.List;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
  * Created by 29208 on 2019/4/7.
  */
-
 public class User extends BmobUser {
+
 
 
     /**
@@ -22,8 +23,29 @@ public class User extends BmobUser {
      */
 
     private String country;
-    private Task task;
 
+    /**
+     * 得分数
+     */
+    private Integer score;
+
+
+    /**
+     * 抢断次数
+     */
+    private Integer steal;
+
+
+    /**
+     * 犯规次数
+     */
+    private Integer foul;
+
+
+    /**
+     * 失误个数
+     */
+    private Integer fault;
 
 
     /**
@@ -47,7 +69,7 @@ public class User extends BmobUser {
     /**
      * 头像
      */
-    private String  avatar;
+    private BmobFile avatar;
 
 
     /**
@@ -55,13 +77,6 @@ public class User extends BmobUser {
      */
     private List<String> alias;
 
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
 
     public String getNickname() {
         return nickname;
@@ -81,7 +96,41 @@ public class User extends BmobUser {
         return this;
     }
 
+    public Integer getScore() {
+        return score;
+    }
 
+    public User setScore(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public Integer getSteal() {
+        return steal;
+    }
+
+    public User setSteal(Integer steal) {
+        this.steal = steal;
+        return this;
+    }
+
+    public Integer getFoul() {
+        return foul;
+    }
+
+    public User setFoul(Integer foul) {
+        this.foul = foul;
+        return this;
+    }
+
+    public Integer getFault() {
+        return fault;
+    }
+
+    public User setFault(Integer fault) {
+        this.fault = fault;
+        return this;
+    }
 
     public Integer getAge() {
         return age;
@@ -110,11 +159,11 @@ public class User extends BmobUser {
         return this;
     }
 
-    public String getAvatar() {
+    public BmobFile getAvatar() {
         return avatar;
     }
 
-    public User setAvatar(String avatar) {
+    public User setAvatar(BmobFile avatar) {
         this.avatar = avatar;
         return this;
     }

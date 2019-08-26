@@ -24,6 +24,8 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.example.volunteer.R;
 import com.example.volunteer.stack.ScreenManager;
+import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +75,13 @@ public class LBSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        findViewById(R.id.arriver_bt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogShow();
+
             }
         });
     }
@@ -183,4 +192,49 @@ public class LBSActivity extends AppCompatActivity {
 
         }
     }
+    public void dialogShow() {
+
+        final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(this);
+        String title="";
+        String text="";
+
+        /**
+         * 设置dialog样式
+         */
+        dialogBuilder
+                .withTitle("请输入六位验证码")                                  //窗口标题
+                .withTitleColor("#FFFFFF")                                  //窗口字体颜色
+                .withDividerColor("#11000000")                              //线条颜色
+
+                .withMessageColor("#FFFFFFFF")                              //里面内容的字体颜色
+                .withDialogColor("#81a663")                               //窗口颜色
+                .withIcon(getResources().getDrawable(R.drawable.dituudaka))   //窗口的icon(直接用withIcon(R.drawable.ic_launcher会出现异常))
+                .isCancelableOnTouchOutside(true)                           //是否可点击窗口外边取消窗口
+                .withDuration(500)                                          //动画速度
+                .withEffect(Effectstype.Flipv)                                         //窗口类型
+                .withButton1Text("签到")                                      //两个button按钮
+                //.withButton2Text("取消")
+                .setCustomView(R.layout.dialog_lbs, getApplicationContext())         //窗口内容下面的layout
+                .setButton1Click(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//
+                        findViewById(R.id.arriver_bt).setBackground(getResources().getDrawable(R.mipmap.restaurant_btbg_yellow));
+                        TextView textView=findViewById(R.id.arriver_timetv);
+                        textView.setText("已签到");
+                        Toast.makeText(LBSActivity.this,"签到成功",Toast.LENGTH_SHORT).show();
+                        dialogBuilder.dismiss();
+                    }
+                })
+                .setButton2Click(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(v.getContext(), "取消", Toast.LENGTH_SHORT).show();
+                        dialogBuilder.dismiss();
+                    }
+                })
+                .show();
+
+    }
+
 }

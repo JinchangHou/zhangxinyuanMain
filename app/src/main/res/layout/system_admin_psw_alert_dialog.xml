@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:padding="10dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/system_admin_psw_alert_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="waring"
+            android:textColor="#f00"
+            android:textSize="25sp"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/system_admin_psw_alert_img"
+            />
+        <Button
+            android:id="@+id/system_admin_psw_alert_close"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#f00"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:lineSpacingExtra="8dp"
+        android:text="输入账号"
+        />
+
+    <EditText
+        android:id="@+id/sap_alert_dialog_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:maxLength="6"
+        android:digits="1234567890"
+        android:singleLine="true"
+        android:layout_margin="16dp"
+        android:hint="请输入主管密码"
+        android:textColorHint="#ccc"
+        android:textColor="#000"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        >
+        <Button
+            android:id="@+id/sap_alert_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:background="#f00"
+            android:text="关闭"
+            android:layout_marginLeft="20dp"
+            />
+        <Button
+            android:id="@+id/sap_alert_dialog_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:background="#f00"
+            android:text="开启"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

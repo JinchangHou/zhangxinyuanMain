@@ -248,12 +248,8 @@ public class AddShuoShuo extends AppCompatActivity {
                     }catch(FileNotFoundException e){
                         e.printStackTrace();
                     }
-
-
                 }
                 break;
-
-
             case CHOOSE_PHOTO:
                 if(resultCode==RESULT_OK){
                     //判断手机型号

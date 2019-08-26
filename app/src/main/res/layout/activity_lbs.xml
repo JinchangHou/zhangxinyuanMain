@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:text="地图"/>
+                android:text="打卡签到"/>
 
         </android.support.v7.widget.Toolbar>
         <!-- scroll表示当RecycleView向上滚动的时候，Toolbar会跟着向上滑动并实现隐藏；enterAlways表示当RecycleView向下滑动并重新显示。snp表示Toolbar还没有完全隐藏或显示的时候，根据当前滚动的距离自动选择显示还是隐藏。-->
@@ -50,5 +50,54 @@
             android:layout_height="match_parent"
             android:clickable="true"/>
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:background="#fff"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/distance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="距离目的地：             0.2公里"
+            android:textColor="#000000"
+            android:layout_margin="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/arriver_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@mipmap/restaurant_btbg_gray">
+
+            <TextView
+                android:id="@+id/arriver_timetv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="18:00:00"
+                android:layout_centerInParent="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/arriver_timetv"
+                android:layout_centerHorizontal="true"
+                android:text="未签到"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 </FrameLayout>

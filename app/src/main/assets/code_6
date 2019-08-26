@@ -1,0 +1,10 @@
+<group class="write-input">
+    <input ref="input" type="number" maxlength="6"
+           class="realInput" v-model="photoNum"
+           @keyup="getNum()" @keydown="delNum()">
+    <li v-for="(disInput, index) of disInputs"
+        :class="{'input-active': photoNum.length === index || photoNum.length > index || index === 0}">
+        <input maxlength="1" disabled v-model="disInput.value">
+    </li>
+    <div class="invite__tip" v-if="showTip">{{tipContent}}</div>
+</group>

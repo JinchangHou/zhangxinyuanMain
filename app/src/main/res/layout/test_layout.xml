@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--手机号码栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60px"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码已经发送到手机："/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60px"
+        android:gravity="center">
+
+        <EditText
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:inputType="number"
+            android:maxLength="5"
+            android:visibility="visible"/>
+
+        <!--验证码输入栏-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/code_text_style"/>
+
+            <ImageView
+                style="@style/vertical_line_style"/>
+
+            <TextView
+                style="@style/code_text_style"/>
+
+            <ImageView
+                style="@style/vertical_line_style"/>
+
+            <TextView
+                style="@style/code_text_style"/>
+
+            <ImageView
+                style="@style/vertical_line_style"/>
+
+            <TextView
+                style="@style/code_text_style"/>
+
+            <ImageView
+                style="@style/vertical_line_style"/>
+
+            <TextView
+                style="@style/code_text_style"/>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <!--下一步按钮-->
+
+
+</LinearLayout>
